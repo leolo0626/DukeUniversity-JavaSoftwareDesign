@@ -10,13 +10,13 @@ public class Tester {
     }
 
     public void testGetFollowsWithFile() {
-        FileResource fr = new FileResource("C:\\Users\\Leo Lo\\Desktop\\program\\DukeUniversity-JavaSoftwareDesign" +
-                "\\src\\main\\java\\week3\\data\\confucius.txt");
+        FileResource fr = new FileResource("/Users/leolo/Desktop/Java/JavaSoftwareDesign/src/main/java/" +
+                "week3/data/melville.txt");
         String st = fr.asString();
         st = st.replace('\n', ' ');
         MarkovOne markovOne = new MarkovOne();
         markovOne.setTraining(st);
-        System.out.println(markovOne.getFollows("t").size());
+        System.out.println(markovOne.getFollows("th").size());
     }
 
     public static void main(String[] args) {

@@ -10,11 +10,12 @@ import edu.duke.*;
 
 public class MarkovRunner {
     public void runMarkovZero() {
-		FileResource fr = new FileResource();
+		FileResource fr = new FileResource("/Users/leolo/Desktop/Java/JavaSoftwareDesign/src/main/java/" +
+				"week3/data/confucius.txt");
 		String st = fr.asString();
 		st = st.replace('\n', ' ');
 		MarkovZero markov = new MarkovZero();
-		markov.setRandom(42);
+		markov.setRandom(88);
 		markov.setTraining(st);
 		for(int k=0; k < 3; k++){
 			String text = markov.getRandomText(500);
@@ -23,10 +24,47 @@ public class MarkovRunner {
 	}
 
 	public void runMarkovOne() {
-		FileResource fr = new FileResource();
+		FileResource fr = new FileResource("/Users/leolo/Desktop/Java/JavaSoftwareDesign/src/main/java/" +
+				"week3/data/confucius.txt");
 		String st = fr.asString();
 		st = st.replace('\n', ' ');
 		MarkovOne markov = new MarkovOne();
+		markov.setRandom(273);
+		markov.setTraining(st);
+		for(int k=0; k < 3; k++){
+			String text = markov.getRandomText(500);
+			printOut(text);
+		}
+
+	}
+
+	public void runMarkovFour() {
+		FileResource fr = new FileResource("/Users/leolo/Desktop/Java/JavaSoftwareDesign/src/main/java/" +
+				"week3/data/confucius.txt");
+		String st = fr.asString();
+		st = st.replace('\n', ' ');
+		MarkovFour markov = new MarkovFour();
+		markov.setRandom(371);
+		markov.setTraining(st);
+		for(int k=0; k < 3; k++){
+			String text = markov.getRandomText(500);
+			printOut(text);
+		}
+
+	}
+
+	public void runMarkovModel() {
+		FileResource fr = new FileResource("/Users/leolo/Desktop/Java/JavaSoftwareDesign/src/main/java/" +
+				"week3/data/confucius.txt");
+		String st = fr.asString();
+		st = st.replace('\n', ' ');
+		MarkovModel markov = new MarkovModel(8);
+		markov.setRandom(365);
+		markov.setTraining(st);
+		for(int k=0; k < 3; k++){
+			String text = markov.getRandomText(500);
+			printOut(text);
+		}
 
 	}
 	
@@ -47,7 +85,7 @@ public class MarkovRunner {
 
 	public static void main (String [] args) {
 		MarkovRunner mr = new MarkovRunner();
-		mr.runMarkovZero();
+		mr.runMarkovFour();
 	}
 	
 }
